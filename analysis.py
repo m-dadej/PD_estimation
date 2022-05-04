@@ -1,17 +1,16 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import numpy as np
 import statsmodels.api as sm
+import os
 
-raw_files = os.listdir('orbis_data/orbis_raw') # get list of raw input files 
+raw_files = os.listdir('orbis_data/') # get list of raw input files 
 
 df = pd.DataFrame([])
 
 # loop merging over available raw files from a directory:
 for file in enumerate(raw_files):
     print('Reading file:' + file[1])
-    xlsx_file = pd.ExcelFile('orbis_data/orbis_raw/' + file[1])
+    xlsx_file = pd.ExcelFile('orbis_data/' + file[1])
     file_df   = pd.read_excel(xlsx_file, 'Results')
     df        = pd.concat([df, file_df], ignore_index=True)
     
@@ -50,12 +49,12 @@ new_colnames = {'Company name Latin alphabet': 'comp_name',
 df.rename(columns=new_colnames, inplace=True)
 df[df == 'n.a.'] = np.NaN
 
-# feature engineering:
+# introducing new variables:
 df['revenue_change'] = df['revenue'] / np.where(df['revenue_lag'] == 0, np.NaN, df['revenue_lag'])
 df['Inactive'] = np.where(df['Inactive'] == 'Yes', 1,0)
 df['ratio1'] = df['capital'] / np.where(df['curr_liab'] == 0, 1, df['curr_liab'])
 
-# modeling:
+# baseline modeling:
 model_df = df[['Inactive', 'ratio1', 'revenue_change']].dropna()
 
 model_df = model_df.groupby('Inactive').sample(n = model_df['Inactive'].value_counts()[1])
@@ -65,8 +64,11 @@ xdat = model_df[['ratio1', 'revenue_change']].astype(float)
 
 model = sm.Logit(endog = ydat, exog = xdat).fit()
 
+# baseline confusion matrix on in-sample data
+pd.DataFrame({'fitted': np.where(model.predict(xdat) > 0.5, 1, 0), 'actual': ydat}).value_counts()
+
 # preliminary EDA
-df.isna().sum() / df.shape[0] # share of NAs per column
+df.isna().sum() / df.shape[0] # share of NAs per column - A few variables that should be dropped, the rest will be interpolated
 
 df.set_index('country')['revenue'].mean(level = 'country')
 df[['country', 'revenue']].groupby('country').agg(['mean', lambda x: x.size, 'size', np.mean])
