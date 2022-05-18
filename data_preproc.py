@@ -1,3 +1,4 @@
+from enum import unique
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
@@ -77,6 +78,10 @@ df[df.isin(['n.a.', '-'])] = np.NaN
 df.drop(['Unnamed: 0'], axis=1, inplace = True)
 df['Inactive'] = np.where(df['Inactive'] == 'Yes', 1,0)
 
+# deleting variables with more than 25% NAs
+df.drop(df.columns[df.isna().sum() / df.shape[0] > 0.25], axis=1, inplace=True)
+df.drop(['Status', 'comp_name'], axis=1, inplace=True)
+
 # new variables:
 df['ebit_ratio1'] = df['ebit'] / np.where(df['assets'] == 0.001, np.NaN, df['assets'])
 df['ebit_ratio2'] = df['ebit'] / np.where(df['capital'] == 0, 0.001, df['capital'])
@@ -107,34 +112,16 @@ df['curr_assets_ratio3'] = df['curr_assets'] * 365 / np.where(df['revenue'] == 0
 df['revenue_ch'] = df['revenue'] / np.where(df['revenue_lag'] == 0, np.NaN, df['revenue_lag'])
 df['pnl_ch'] = df['pnl'] / np.where(df['pnl_lag'] == 0, np.NaN, df['pnl_lag'])
 df['assets_ch'] = df['assets'] / pd.to_numeric(np.where(df['assets_lag'] == 0, np.NaN, df['assets_lag']))
-df['n_employees_ch'] = df['n_employees'] / np.where(df['n_employees_lag'] == 0, np.NaN, df['n_employees_lag'])
 df['ebit_ch'] = df['ebit'] / np.where(df['ebit_lag'] == 0, np.NaN, df['ebit_lag'])
-df['fixed_assets_ch'] = df['fixed_assets'] / np.where(df['fixed_assets_lag'] == 0, np.NaN, df['fixed_assets_lag'])
-df['curr_assets_ch'] = df['curr_assets'] / np.where(df['curr_assets_lag'] == 0, np.NaN, df['curr_assets_lag'])
 df['capital_ratio3'] = df['capital'] / np.where(df['curr_liab'] == 0, 1, df['curr_liab'])
 
-# baseline modeling:
-model_df = df[['Inactive', 'ratio1', 'revenue_change']].dropna()
+# one-hot encoding sector variable
+sector_df = pd.DataFrame({'sector': df.sector.unique(),
+                          'sector_id': ['sector_' + str(i) for i in range(df.sector.unique().shape[0])]})
 
-model_df = model_df.groupby('Inactive').sample(n = model_df['Inactive'].value_counts()[1])
+for id in range(sector_df.shape[0]):
+    df[sector_df.sector_id[id]] = np.where(df.sector == sector_df.sector[id], 1,0) 
 
-ydat = model_df['Inactive'].astype(float)
-xdat = model_df[['ratio1', 'revenue_change']].astype(float)
-
-model = sm.Logit(endog = ydat, exog = xdat).fit()
-
-# baseline confusion matrix on in-sample data
-pd.DataFrame({'fitted': np.where(model.predict(xdat) > 0.5, 1, 0), 'actual': ydat}).value_counts()
-
-sum(np.where(model.predict(xdat) > 0.5, 1, 0) == ydat) / len(ydat) # accuracy
-
-# preliminary EDA
-df.isna().sum() / df.shape[0] # share of NAs per column - A few variables that should be dropped, the rest will be interpolated
-
-df.set_index('country')['revenue'].mean(level = 'country')
-df[['country', 'revenue']].groupby('country').agg(['mean', lambda x: x.size, 'size', np.mean])
-
-df['country'].value_counts()
-
-df.mean(level = 'country')
-
+# one-hot encoding country variables
+for country_id in df.country.unique():
+    df[country_id] = np.where(df.country == country_id,1,0)
