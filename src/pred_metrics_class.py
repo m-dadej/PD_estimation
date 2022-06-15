@@ -35,7 +35,25 @@ class PredMetrics:
         tn = np.array(classified_df.default_prob[classified_df.actual == 0] == 0).sum()
         n = np.array(self.df_compare.actual == 0).sum()
         return tn/n
+
+    def fpr(self, threshold):
+        """true negative rate for a given threshold level - true negatives / negatives"""
+        classified_df = self.df_compare.copy()
+        classified_df['default_prob'] = np.where(self.df_compare['default_prob'] > threshold, 1, 0)
+        fp = np.array(classified_df.default_prob[classified_df.actual == 0] == 1).sum()
+        n = np.array(self.df_compare.actual == 0).sum()
+        return fp/n
     
     def balanced_acc(self, threshold):
         """balanced accuracy - (tpr + tnr)/n"""
         return (self.tpr(threshold) + self.tnr(threshold)) / 2
+
+    def max_balanced_acc(self, granularity):
+        """balanced accuracy - (tpr + tnr)/n"""
+        thresholds = np.linspace(start=0, stop=1, num=granularity)
+        balanced_acc_df = pd.DataFrame({'thresholds': thresholds,
+                                        'tpr': [self.tpr(i) for i in thresholds],
+                                        'tnr': [self.tnr(i) for i in thresholds]})
+        balanced_acc_df['balanced_acc'] = (balanced_acc_df.tpr + balanced_acc_df.tnr)/2
+        max_bacc = balanced_acc_df.iloc[np.argmax(balanced_acc_df.balanced_acc),:]
+        return max_bacc

@@ -9,6 +9,7 @@ raw_files = os.listdir('orbis_data/') # get list of raw input files
 df = pd.DataFrame([])
 
 # loop merging over available raw files from a directory:
+# csv would be faster but the Orbis database gives xlsx
 for file in enumerate(raw_files):
     print('Reading file: ' + file[1] + ' ...')
     xlsx_file = pd.ExcelFile('orbis_data/' + file[1])
