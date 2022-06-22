@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.17)  15 JUN 2022 12:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.17)  22 JUN 2022 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -922,9 +922,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [3
 
-] [4
+]
+<img/country_n.png, id=116, 433.62pt x 289.08pt>
+File: img/country_n.png Graphic file (type png)
+<use img/country_n.png>
+Package pdftex.def Info: img/country_n.png  used on input line 45.
+(pdftex.def)             Requested size: 303.53192pt x 202.35461pt.
+ [4
 
-] [5
+ <./img/country_n.png>] [5
 
 ] [6
 
@@ -932,32 +938,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [8
 
+] [9
+
 ]
-<img/log_roc.png, id=254, 373.395pt x 248.93pt>
+<img/log_roc.png, id=283, 373.395pt x 248.93pt>
 File: img/log_roc.png Graphic file (type png)
 <use img/log_roc.png>
-Package pdftex.def Info: img/log_roc.png  used on input line 135.
-(pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
- [9
-
- <./img/log_roc.png>]
-<img/xgb_roc.png, id=283, 373.395pt x 248.93pt>
-File: img/xgb_roc.png Graphic file (type png)
-<use img/xgb_roc.png>
-Package pdftex.def Info: img/xgb_roc.png  used on input line 142.
+Package pdftex.def Info: img/log_roc.png  used on input line 139.
 (pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
  [10
 
- <./img/xgb_roc.png>]
-<img/mlpc_roc.png, id=311, 373.395pt x 248.93pt>
-File: img/mlpc_roc.png Graphic file (type png)
-<use img/mlpc_roc.png>
-Package pdftex.def Info: img/mlpc_roc.png  used on input line 149.
+ <./img/log_roc.png>]
+<img/xgb_roc.png, id=311, 373.395pt x 248.93pt>
+File: img/xgb_roc.png Graphic file (type png)
+<use img/xgb_roc.png>
+Package pdftex.def Info: img/xgb_roc.png  used on input line 146.
 (pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
 
 [11
 
- <./img/mlpc_roc.png>] [12
+ <./img/xgb_roc.png>]
+<img/mlpc_roc.png, id=339, 373.395pt x 248.93pt>
+File: img/mlpc_roc.png Graphic file (type png)
+<use img/mlpc_roc.png>
+Package pdftex.def Info: img/mlpc_roc.png  used on input line 153.
+(pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
+ [12
+
+ <./img/mlpc_roc.png>] [13
 
 ]
 \tf@nav=\write6
@@ -974,10 +982,10 @@ Package rerunfilecheck Info: File `slides_PD.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 20346 strings out of 480796
- 384982 string characters out of 5903513
+ 20357 strings out of 480796
+ 385163 string characters out of 5903513
  661654 words of memory out of 5000000
- 37278 multiletter control sequences out of 15000+600000
+ 37286 multiletter control sequences out of 15000+600000
  413710 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,104p,432b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -993,10 +1001,10 @@ c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mssi8.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb>
-Output written on slides_PD.pdf (12 pages, 153651 bytes).
+Output written on slides_PD.pdf (13 pages, 180978 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 25 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 433 PDF objects out of 1000 (max. 8388607)
+ 381 compressed objects within 4 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
