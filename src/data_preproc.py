@@ -79,6 +79,7 @@ df[df.isin(['n.a.', '-'])] = np.NaN
 df.drop(['Unnamed: 0'], axis=1, inplace = True)
 df['Inactive'] = np.where(df['Inactive'] == 'Yes', 1,0)
 
+
 # deleting variables with more than 25% NAs
 df.drop(df.columns[df.isna().sum() / df.shape[0] > 0.25], axis=1, inplace=True)
 df.drop(['Status', 'comp_name'], axis=1, inplace=True)
@@ -126,3 +127,5 @@ for id in range(sector_df.shape[0]):
 # one-hot encoding country variables
 for country_id in df.country.unique():
     df[country_id] = np.where(df.country == country_id,1,0)
+
+
