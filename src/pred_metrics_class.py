@@ -44,6 +44,14 @@ class PredMetrics:
         n = np.array(self.df_compare.actual == 0).sum()
         return fp/n
     
+    def fnr(self, threshold):
+        """false negative rate for a given threshold level - false negatives / positives"""
+        classified_df = self.df_compare.copy()
+        classified_df['default_prob'] = np.where(self.df_compare['default_prob'] > threshold, 1, 0)
+        fn = np.array(classified_df.default_prob[classified_df.actual == 1] == 0).sum()
+        p = np.array(classified_df.actual == 1).sum()
+        return fn/p
+    
     def balanced_acc(self, threshold):
         """balanced accuracy - (tpr + tnr)/n"""
         return (self.tpr(threshold) + self.tnr(threshold)) / 2

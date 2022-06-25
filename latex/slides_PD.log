@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.17)  22 JUN 2022 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.17)  24 JUN 2022 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,31 +941,60 @@ Package pdftex.def Info: img/country_n.png  used on input line 45.
 ] [9
 
 ]
-<img/log_roc.png, id=283, 373.395pt x 248.93pt>
+<img/log_roc.png, id=283, 433.62pt x 289.08pt>
 File: img/log_roc.png Graphic file (type png)
 <use img/log_roc.png>
 Package pdftex.def Info: img/log_roc.png  used on input line 139.
-(pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
+(pdftex.def)             Requested size: 281.84966pt x 187.89977pt.
  [10
 
  <./img/log_roc.png>]
-<img/xgb_roc.png, id=311, 373.395pt x 248.93pt>
+<img/xgb_roc.png, id=311, 433.62pt x 289.08pt>
 File: img/xgb_roc.png Graphic file (type png)
 <use img/xgb_roc.png>
 Package pdftex.def Info: img/xgb_roc.png  used on input line 146.
-(pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
+(pdftex.def)             Requested size: 281.84966pt x 187.89977pt.
 
 [11
 
  <./img/xgb_roc.png>]
-<img/mlpc_roc.png, id=339, 373.395pt x 248.93pt>
+<img/mlpc_roc.png, id=339, 433.62pt x 289.08pt>
 File: img/mlpc_roc.png Graphic file (type png)
 <use img/mlpc_roc.png>
 Package pdftex.def Info: img/mlpc_roc.png  used on input line 153.
-(pdftex.def)             Requested size: 205.36787pt x 136.91191pt.
+(pdftex.def)             Requested size: 281.84966pt x 187.89977pt.
  [12
 
- <./img/mlpc_roc.png>] [13
+ <./img/mlpc_roc.png>]
+<img/xgb_tnr_tpr.png, id=368, 289.08pt x 361.35pt>
+File: img/xgb_tnr_tpr.png Graphic file (type png)
+<use img/xgb_tnr_tpr.png>
+Package pdftex.def Info: img/xgb_tnr_tpr.png  used on input line 174.
+(pdftex.def)             Requested size: 158.99448pt x 198.74312pt.
+<img/mlpc_tnr_tpr.png, id=369, 289.08pt x 361.35pt>
+File: img/mlpc_tnr_tpr.png Graphic file (type png)
+<use img/mlpc_tnr_tpr.png>
+Package pdftex.def Info: img/mlpc_tnr_tpr.png  used on input line 174.
+(pdftex.def)             Requested size: 158.99448pt x 198.74312pt.
+ [13
+
+ <./img/xgb_tnr_tpr.png> <./img/mlpc_tnr_tpr.png>]
+<img/max_balance_table.png, id=399, 523.2348pt x 103.3461pt>
+File: img/max_balance_table.png Graphic file (type png)
+<use img/max_balance_table.png>
+Package pdftex.def Info: img/max_balance_table.png  used on input line 186.
+(pdftex.def)             Requested size: 313.9433pt x 62.00813pt.
+ [14
+
+ <./img/max_balance_table.png>]
+<img/balance_acc_table.png, id=427, 547.8066pt x 125.0271pt>
+File: img/balance_acc_table.png Graphic file (type png)
+<use img/balance_acc_table.png>
+Package pdftex.def Info: img/balance_acc_table.png  used on input line 197.
+(pdftex.def)             Requested size: 328.6865pt x 75.01683pt.
+ [15
+
+ <./img/balance_acc_table.png>] [16
 
 ]
 \tf@nav=\write6
@@ -982,11 +1011,11 @@ Package rerunfilecheck Info: File `slides_PD.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 20357 strings out of 480796
- 385163 string characters out of 5903513
+ 20409 strings out of 480796
+ 386118 string characters out of 5903513
  661654 words of memory out of 5000000
- 37286 multiletter control sequences out of 15000+600000
- 413710 words of font info for 65 fonts, out of 8000000 for 9000
+ 37323 multiletter control sequences out of 15000+600000
+ 415619 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,104p,432b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1001,10 +1030,10 @@ c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mssi8.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb>
-Output written on slides_PD.pdf (13 pages, 180978 bytes).
+Output written on slides_PD.pdf (16 pages, 384399 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 27 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 521 PDF objects out of 1000 (max. 8388607)
+ 457 compressed objects within 5 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

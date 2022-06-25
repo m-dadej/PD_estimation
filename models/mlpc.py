@@ -5,7 +5,7 @@ from sklearn.neural_network import MLPClassifier
 import sklearn as sk
 import joblib
 
-rnd.seed(1)
+rnd.seed(123)
 
 def mlpc_fit(X_train, y_train, folds, n_iter):
     # MLPC estimation
@@ -15,7 +15,7 @@ def mlpc_fit(X_train, y_train, folds, n_iter):
     X_train_scaled = scaler.transform(X_train) 
 
     param_grid = {
-    'hidden_layer_sizes': [(50,50,50), (50,100,50), (100), (100, 50, 20)],
+    'hidden_layer_sizes': [(50,50,50), (50,100,50), (100,), (100, 50, 20)],
     'activation': ['tanh', 'relu'],
     'solver': ['sgd', 'adam'],
     'alpha': [0.001, 0.05, 0.005],
@@ -24,10 +24,9 @@ def mlpc_fit(X_train, y_train, folds, n_iter):
 
     skf = StratifiedKFold(n_splits=folds, shuffle = True, random_state = 1)
     mlpc = MLPClassifier(random_state=1, max_iter=10000, verbose = False, tol = 1e-2)
-    mlpc = RandomizedSearchCV(mlpc, param_distributions = param_grid, cv = skf.split(X_train_scaled, y_train), n_iter=n_iter, verbose = 2)
-    mlpc.fit(X_train_scaled, y_train)
+    mlpc = RandomizedSearchCV(mlpc, param_distributions = param_grid, scoring='roc_auc', cv = skf.split(X_train_scaled, y_train), n_iter=n_iter, verbose = 2)
+    mlpc = mlpc.fit(np.array(X_train_scaled), np.array(y_train))
     return mlpc
-
 
 mlpc_us = mlpc_fit(X_train_us, y_train_us, folds = 3, n_iter = 5)
 mlpc_os = mlpc_fit(X_train_os, y_train_os, folds = 3, n_iter = 5)

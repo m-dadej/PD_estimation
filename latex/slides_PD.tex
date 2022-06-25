@@ -134,21 +134,65 @@ For this project, the hyperparameters were tuned with a random search.
 \begin{frame}{model fitness comparison - ROC}
 
 \begin{center}
-\includegraphics[scale=0.55]{img/log_roc.png}
+\includegraphics[scale=0.65]{img/log_roc.png}
 \end{center}
 \end{frame}
 
 \begin{frame}{model fitness comparison - ROC}
 
 \begin{center}
-\includegraphics[scale=0.55]{img/xgb_roc.png}
+\includegraphics[scale=0.65]{img/xgb_roc.png}
 \end{center}
 \end{frame}
 
 \begin{frame}{model fitness comparison - ROC}
 
 \begin{center}
-\includegraphics[scale=0.55]{img/mlpc_roc.png}
+\includegraphics[scale=0.65]{img/mlpc_roc.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{TPR, TNR vs. threshold}
+\begin{columns} 
+% Column 1
+\fontsize{9pt}{7.2}\selectfont
+
+    \begin{column}{.5\textwidth}
+    \begin{center}
+        \includegraphics[scale=0.55]{img/xgb_tnr_tpr.png}
+		\end{center}
+    \end{column}
+% Column 2    
+    \begin{column}{.5\textwidth}
+        \begin{center}
+        \includegraphics[scale=0.55]{img/mlpc_tnr_tpr.png}
+		\end{center}
+    \end{column}%
+    
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Metrics with optimal thresholds}
+
+\begin{itemize}
+\item Optimal threshold w.r.t balanced accuracy
+\item note, it's in-sample opimtal (best case scenario)
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.6]{img/max_balance_table.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Base case metrics comparison}
+
+\begin{itemize}
+\item Metrics calculated with $50$\% threshold (base case)
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.6]{img/balance_acc_table.png}
 \end{center}
 \end{frame}
 
