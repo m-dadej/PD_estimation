@@ -1,8 +1,9 @@
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from copy import deepcopy
+import numpy as np
 
-rnd.seed(1)
+np.random.seed(1)
 
 # logistic regression estimation
 param_grid = {'C': np.logspace(-4, 2, 3),

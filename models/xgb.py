@@ -3,6 +3,8 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 import joblib
 
+np.random.seed(123)
+
 def xgb_fit(X_train, y_train, n_estimator, folds, param_combs):    
     # XGB estimation:
     params = {
