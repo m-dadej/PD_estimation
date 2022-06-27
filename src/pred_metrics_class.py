@@ -56,6 +56,15 @@ class PredMetrics:
         """balanced accuracy - (tpr + tnr)/n"""
         return (self.tpr(threshold) + self.tnr(threshold)) / 2
 
+    def f1_score(self, threshold):
+        """F1 score - tp/(tp + 1/2(fp + fn))"""
+        classified_df = self.df_compare.copy()
+        classified_df['default_prob'] = np.where(self.df_compare['default_prob'] > threshold, 1, 0)
+        tp = classified_df.default_prob[classified_df.actual == 1].sum()
+        fp = np.array(classified_df.default_prob[classified_df.actual == 0] == 1).sum()
+        fn = np.array(classified_df.default_prob[classified_df.actual == 1] == 0).sum()
+        return (2*tp)/(2*tp + (fp + fn))
+
     def max_balanced_acc(self, granularity):
         """balanced accuracy - (tpr + tnr)/n"""
         thresholds = np.linspace(start=0, stop=1, num=granularity)

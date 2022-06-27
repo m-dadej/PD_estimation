@@ -22,9 +22,8 @@
 \begin{frame}{Overview of data: Basic information}
 
 \begin{itemize}
-\item Data is sourced from Orbis - Private company database
+\item Data is sourced from Orbis - Database with private companies
 \item Geographical location of companies are developed countries in Europe 
-\item in period 2018-2020
 \item observations were filtered with following criteria:
 	\begin{itemize}
 	\item Active, bancrupt or dissolved at time $t$
@@ -84,6 +83,39 @@ In order to adress the problem and investigate their modeling consequences, I fu
 Further modeling workflow is done for datasets resampled with each of the methods above, in order to compere them.
 \end{frame}
 
+\begin{frame}{Resampling methods - SMOTE}
+\begin{itemize}
+\item Model-based oversampling technique
+\item synthetic observations - sampled from the feature space around N-nearest neighbours (5 neighbours in this project). 
+\item The only method used that introduces some randomness
+\item combined with undersampling, as the original paper suggests [N. Chawla, et. al, 2002]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Resampling methods}
+\begin{center}
+\includegraphics[scale=0.5]{img/resampling_strat.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Resampling methods - stratified resampling}
+
+\begin{itemize}
+\item Problem: Imbalance not only on the dataset level but also between countries (see: slide 4)
+\item Consequence: ML favor countries with imbalance e.g:
+
+\begin{itemize}
+	\item IT with highest number of defaults $\rightarrow$ ML gives higher PD to Italian corporates
+	\item Is it economically sensible? (no, mostly sampling error)
+	\item Opposite effect for France
+\end{itemize}
+
+\item Solution: weighted (undersampling) oversampling with weights (negatively) proportional to the share of defaults in the original dataset
+\item Effect: The trainning datasets have effectively balanced classes between countries
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}{Applied models (1/3): Penalized logistic regression}
 
 $$\min_{w,c} \frac{1-\rho}{2} \beta^{T}\beta + \rho ||\beta||_1 + C \sum_{i-1}^n \ln e^{-y_i(X_i^T \beta + c)}+1$$
@@ -134,22 +166,39 @@ For this project, the hyperparameters were tuned with a random search.
 \begin{frame}{model fitness comparison - ROC}
 
 \begin{center}
-\includegraphics[scale=0.65]{img/log_roc.png}
+\includegraphics[scale=0.5]{img/log_roc.png}
 \end{center}
+
+The Logistic model did not converge (as confirmed by algorithm in Python)
+
+Most likely could not recognize too complex/non-linear patterns
+
 \end{frame}
 
 \begin{frame}{model fitness comparison - ROC}
 
 \begin{center}
-\includegraphics[scale=0.65]{img/xgb_roc.png}
+\includegraphics[scale=0.54]{img/xgb_roc.png}
 \end{center}
+
+\begin{itemize}
+\item Similar shape
+\item Surprisingly, SMOTE laggs behind other methods
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{model fitness comparison - ROC}
 
 \begin{center}
-\includegraphics[scale=0.65]{img/mlpc_roc.png}
+\includegraphics[scale=0.55]{img/mlpc_roc.png}
 \end{center}
+
+\begin{itemize}
+\item Different shape for every method
+\item Once again, the SMOTE method is worse than the rest
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{TPR, TNR vs. threshold}
@@ -222,6 +271,18 @@ For this project, the hyperparameters were tuned with a random search.
 \end{columns}
 \end{frame}
 
+\begin{frame}{Feature importance without stratified resampling}
+
+\begin{center}
+        \includegraphics[scale=0.42]{img/no_country_effect/xgb_exp.png}
+\end{center}
+
+\begin{center}
+        \includegraphics[scale=0.35]{img/no_country_effect/balance_acc_table.png}
+\end{center}
+
+\end{frame}
+
 \begin{frame}{Case study: Energia Siciliana S.R.L}
 
 \begin{itemize}
@@ -233,6 +294,23 @@ For this project, the hyperparameters were tuned with a random search.
 \begin{center}
 \includegraphics[scale=0.4]{img/energia_plot.png}
 \end{center}
+\end{frame}
+
+\begin{frame}{further research}
+\begin{itemize}
+\item What's the value-added of having single model for each country vs. a single model to rule them all?
+
+\item Choose final model:
+
+\begin{itemize}
+\item best combination of resampling technique and algorithm
+\item perhaps average few models
+\item spend more time optimizing single model
+\item What are the best metrics we can get?
+\end{itemize}
+
+\item simulating a credit portfolio for a given empirical parameters (RR, ROI, default rate) Is the model profitable?
+\end{itemize}
 \end{frame}
 
 \begin{frame}{References}
