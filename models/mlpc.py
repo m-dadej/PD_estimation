@@ -4,8 +4,9 @@ from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 from sklearn.neural_network import MLPClassifier
 import sklearn as sk
 import joblib
+import numpy as np
 
-rnd.seed(123)
+np.random.seed(1)
 
 def mlpc_fit(X_train, y_train, folds, n_iter):
     # MLPC estimation
@@ -24,7 +25,8 @@ def mlpc_fit(X_train, y_train, folds, n_iter):
 
     skf = StratifiedKFold(n_splits=folds, shuffle = True, random_state = 1)
     mlpc = MLPClassifier(random_state=1, max_iter=10000, verbose = False, tol = 1e-2)
-    mlpc = RandomizedSearchCV(mlpc, param_distributions = param_grid, scoring='roc_auc', cv = skf.split(X_train_scaled, y_train), n_iter=n_iter, verbose = 2)
+    mlpc = RandomizedSearchCV(mlpc, param_distributions = param_grid, scoring='roc_auc', 
+                              cv = skf.split(X_train_scaled, y_train), n_iter=n_iter, verbose = 2)
     mlpc = mlpc.fit(np.array(X_train_scaled), np.array(y_train))
     return mlpc
 

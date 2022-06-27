@@ -196,6 +196,45 @@ For this project, the hyperparameters were tuned with a random search.
 \end{center}
 \end{frame}
 
+\begin{frame}{Feature importance}
+
+\begin{itemize}
+\item Surprisingly high importance of variables in absolute values
+\item Smaller country effect than before stratified resampling
+\item Different patternrecognition between ML models (MLPC - sectors, XGB - ratios)
+\end{itemize}
+\begin{columns} 
+% Column 1
+\fontsize{9pt}{7.2}\selectfont
+
+    \begin{column}{.5\textwidth}
+    \begin{center}
+        \includegraphics[scale=0.42]{img/xgb_exp.png}
+		\end{center}
+    \end{column}
+% Column 2    
+    \begin{column}{.5\textwidth}
+        \begin{center}
+        \includegraphics[scale=0.42]{img/mlpc_exp.png}
+		\end{center}
+    \end{column}%
+    
+\end{columns}
+\end{frame}
+
+\begin{frame}{Case study: Energia Siciliana S.R.L}
+
+\begin{itemize}
+\item Big contribution to the variables in absolute levels
+\item correctly predicted bancruptcy 1 year before (76,6\%)
+\end{itemize}
+
+
+\begin{center}
+\includegraphics[scale=0.4]{img/energia_plot.png}
+\end{center}
+\end{frame}
+
 \begin{frame}{References}
 
 \begin{itemize}
