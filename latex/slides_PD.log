@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.17)  28 JUN 2022 14:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.17)  27 JUL 2022 23:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,99 +957,96 @@ Overfull \vbox (6.80548pt too high) detected at line 99
 ] [12
 
 ]
-<img/log_roc.png, id=364, 433.62pt x 289.08pt>
+<img/log_roc.png, id=365, 433.62pt x 289.08pt>
 File: img/log_roc.png Graphic file (type png)
 <use img/log_roc.png>
-Package pdftex.def Info: img/log_roc.png  used on input line 177.
+Package pdftex.def Info: img/log_roc.png  used on input line 178.
 (pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
  [13
 
  <./img/log_roc.png>]
-<img/xgb_roc.png, id=393, 433.62pt x 289.08pt>
+<img/xgb_roc.png, id=394, 433.62pt x 289.08pt>
 File: img/xgb_roc.png Graphic file (type png)
 <use img/xgb_roc.png>
-Package pdftex.def Info: img/xgb_roc.png  used on input line 190.
+Package pdftex.def Info: img/xgb_roc.png  used on input line 191.
 (pdftex.def)             Requested size: 234.1513pt x 156.10086pt.
 
 [14
 
  <./img/xgb_roc.png>]
-<img/mlpc_roc.png, id=421, 433.62pt x 289.08pt>
+<img/mlpc_roc.png, id=422, 433.62pt x 289.08pt>
 File: img/mlpc_roc.png Graphic file (type png)
 <use img/mlpc_roc.png>
-Package pdftex.def Info: img/mlpc_roc.png  used on input line 203.
+Package pdftex.def Info: img/mlpc_roc.png  used on input line 204.
 (pdftex.def)             Requested size: 238.49173pt x 158.99448pt.
  [15
 
  <./img/mlpc_roc.png>]
-<img/xgb_tnr_tpr.png, id=449, 289.08pt x 361.35pt>
+<img/xgb_tnr_tpr.png, id=450, 289.08pt x 361.35pt>
 File: img/xgb_tnr_tpr.png Graphic file (type png)
 <use img/xgb_tnr_tpr.png>
-Package pdftex.def Info: img/xgb_tnr_tpr.png  used on input line 224.
+Package pdftex.def Info: img/xgb_tnr_tpr.png  used on input line 225.
 (pdftex.def)             Requested size: 158.99448pt x 198.74312pt.
-<img/mlpc_tnr_tpr.png, id=450, 289.08pt x 361.35pt>
+<img/mlpc_tnr_tpr.png, id=451, 289.08pt x 361.35pt>
 File: img/mlpc_tnr_tpr.png Graphic file (type png)
 <use img/mlpc_tnr_tpr.png>
-Package pdftex.def Info: img/mlpc_tnr_tpr.png  used on input line 224.
+Package pdftex.def Info: img/mlpc_tnr_tpr.png  used on input line 225.
 (pdftex.def)             Requested size: 158.99448pt x 198.74312pt.
  [16
 
  <./img/xgb_tnr_tpr.png> <./img/mlpc_tnr_tpr.png>]
-<img/max_balance_table.png, id=480, 523.2348pt x 103.3461pt>
+<img/max_balance_table.png, id=481, 523.2348pt x 103.3461pt>
 File: img/max_balance_table.png Graphic file (type png)
 <use img/max_balance_table.png>
-Package pdftex.def Info: img/max_balance_table.png  used on input line 236.
+Package pdftex.def Info: img/max_balance_table.png  used on input line 237.
 (pdftex.def)             Requested size: 313.9433pt x 62.00813pt.
  [17
 
  <./img/max_balance_table.png>]
-<img/balance_acc_table.png, id=508, 547.8066pt x 146.7081pt>
+<img/balance_acc_table.png, id=509, 547.8066pt x 146.7081pt>
 File: img/balance_acc_table.png Graphic file (type png)
 <use img/balance_acc_table.png>
-Package pdftex.def Info: img/balance_acc_table.png  used on input line 247.
+Package pdftex.def Info: img/balance_acc_table.png  used on input line 248.
 (pdftex.def)             Requested size: 328.6865pt x 88.02553pt.
  [18
 
  <./img/balance_acc_table.png>]
-<img/xgb_exp.png, id=536, 385.9218pt x 359.9046pt>
+<img/xgb_exp.png, id=537, 385.9218pt x 346.4142pt>
 File: img/xgb_exp.png Graphic file (type png)
 <use img/xgb_exp.png>
-Package pdftex.def Info: img/xgb_exp.png  used on input line 273.
-(pdftex.def)             Requested size: 162.08604pt x 151.15889pt.
-<img/mlpc_exp.png, id=537, 379.6584pt x 344.0052pt>
+Package pdftex.def Info: img/xgb_exp.png  used on input line 274.
+(pdftex.def)             Requested size: 162.08604pt x 145.49297pt.
+<img/mlpc_exp.png, id=538, 379.6584pt x 344.0052pt>
 File: img/mlpc_exp.png Graphic file (type png)
 <use img/mlpc_exp.png>
-Package pdftex.def Info: img/mlpc_exp.png  used on input line 273.
+Package pdftex.def Info: img/mlpc_exp.png  used on input line 274.
 (pdftex.def)             Requested size: 159.45543pt x 144.48119pt.
-
-Overfull \vbox (1.29242pt too high) detected at line 273
- []
-
-[19
+ [19
 
  <./img/xgb_exp.png> <./img/mlpc_exp.png>]
-<img/no_country_effect/xgb_exp.png, id=567, 385.9218pt x 346.4142pt>
+<img/no_country_effect/xgb_exp.png, id=568, 385.9218pt x 346.4142pt>
 File: img/no_country_effect/xgb_exp.png Graphic file (type png)
 <use img/no_country_effect/xgb_exp.png>
 Package pdftex.def Info: img/no_country_effect/xgb_exp.png  used on input line 
-285.
+286.
 (pdftex.def)             Requested size: 162.08604pt x 145.49297pt.
-<img/no_country_effect/balance_acc_table.png, id=568, 547.8066pt x 125.0271pt>
+<img/no_country_effect/balance_acc_table.png, id=569, 547.8066pt x 125.0271pt>
 File: img/no_country_effect/balance_acc_table.png Graphic file (type png)
 <use img/no_country_effect/balance_acc_table.png>
 Package pdftex.def Info: img/no_country_effect/balance_acc_table.png  used on i
-nput line 285.
+nput line 286.
 (pdftex.def)             Requested size: 191.73517pt x 43.76013pt.
  [20
 
  <./img/no_country_effect/xgb_exp.png> <./img/no_country_effect/balance_acc_tab
 le.png>]
-<img/energia_plot.png, id=598, 387.849pt x 410.0118pt>
+<img/energia_plot.png, id=599, 387.849pt x 410.0118pt>
 File: img/energia_plot.png Graphic file (type png)
 <use img/energia_plot.png>
-Package pdftex.def Info: img/energia_plot.png  used on input line 298.
+Package pdftex.def Info: img/energia_plot.png  used on input line 299.
 (pdftex.def)             Requested size: 155.13684pt x 164.0018pt.
- [21
+
+[21
 
  <./img/energia_plot.png>] [22
 
@@ -1088,11 +1085,12 @@ AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><
 c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mssi8.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb>
-Output written on slides_PD.pdf (23 pages, 589418 bytes).
+1/public/amsfonts/cm/cmsy6.pfb><c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on slides_PD.pdf (23 pages, 596160 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 637 compressed objects within 7 object streams
+ 726 PDF objects out of 1000 (max. 8388607)
+ 640 compressed objects within 7 object streams
  47 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -118,12 +118,13 @@ Further modeling workflow is done for datasets resampled with each of the method
 
 \begin{frame}{Applied models (1/3): Penalized logistic regression}
 
-$$\min_{w,c} \frac{1-\rho}{2} \beta^{T}\beta + \rho ||\beta||_1 + C \sum_{i-1}^n \ln e^{-y_i(X_i^T \beta + c)}+1$$
+
+$$\min_{\beta} \alpha \beta^2 + (1-\alpha)|\beta| - C \sum_{i = 1}^n y_i \beta ' X_i - \ln 1 + e^{\beta'X_i}$$
 
 Where:
 
 \begin{itemize}
-\item $\rho$ parameter regulating preference for l-2 or l-1 regularizaton
+\item $\alpha$ parameter regulating preference for l-2 or l-1 regularizaton
 \item C paraemters regulating preference to regularization
 \end{itemize}
 

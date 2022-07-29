@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from sklearn.metrics import f1_score
+
 
 class PredMetrics:
     """class to investigate a classification model fitness"""
@@ -21,7 +23,7 @@ class PredMetrics:
         return correct / classified_df.shape[0]
     
     def tpr(self, threshold):
-        """true positive rate for a given threshold level - true positives / positives"""
+        """true positive rate (aka recall/sensitivity) for a given threshold level - true positives / positives"""
         classified_df = self.df_compare.copy()
         classified_df['default_prob'] = np.where(self.df_compare['default_prob'] > threshold, 1, 0)
         tp = classified_df.default_prob[classified_df.actual == 1].sum()
@@ -56,6 +58,17 @@ class PredMetrics:
         """balanced accuracy - (tpr + tnr)/n"""
         return (self.tpr(threshold) + self.tnr(threshold)) / 2
 
+    def ppv(self, threshold):
+        """positive predictive value (aka precision) for a given threshold"""
+        classified_df = self.df_compare.copy()
+        classified_df['default_prob'] = np.where(self.df_compare['default_prob'] > threshold, 1, 0)
+        tp = classified_df.default_prob[classified_df.actual == 1].sum()
+        pp = classified_df.default_prob.sum()
+        return tp/pp
+    
+    def f1_score2(self, threshold):
+        return 2*((self.ppv(threshold) * self.tpr(threshold))/(self.ppv(threshold) + self.tpr(threshold)))
+
     def f1_score(self, threshold):
         """F1 score - tp/(tp + 1/2(fp + fn))"""
         classified_df = self.df_compare.copy()
@@ -64,6 +77,12 @@ class PredMetrics:
         fp = np.array(classified_df.default_prob[classified_df.actual == 0] == 1).sum()
         fn = np.array(classified_df.default_prob[classified_df.actual == 1] == 0).sum()
         return (2*tp)/(2*tp + (fp + fn))
+
+    def f1_score_sk(self, threshold, average):
+        """sklearn function for troubleshooting low f1_score fo the models"""
+        classified_df = self.df_compare.copy()
+        classified_df['default_prob'] = np.where(self.df_compare['default_prob'] > threshold, 1, 0)
+        return f1_score(classified_df.actual, classified_df.default_prob, average = average)
 
     def max_balanced_acc(self, granularity):
         """balanced accuracy - (tpr + tnr)/n"""
