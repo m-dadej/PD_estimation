@@ -23,4 +23,4 @@ Take a look also at the `latex/slides_PD.pdf` for slides that describes the proj
 - `src`: folder with python scripts to run the modelling workflow
 
 - `latex`: latex folder with slides that presents the herein project 
-    - `latex/img`: here are all of the charts/tables stored that were used in the slides and in the `analysis.pdf`
+    - `latex/img`: here are all of the charts/tables stored that were used in the slides and in the `analysis.ipynb`
